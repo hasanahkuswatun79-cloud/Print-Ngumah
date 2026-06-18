@@ -5,7 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -25,7 +25,7 @@ import java.util.Locale
 fun DashboardScreen(viewModel: MainViewModel) {
     val uiState by viewModel.uiState.collectAsState()
     
-    val formatRp = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+    val formatRp = NumberFormat.getCurrencyInstance(Locale.forLanguageTag("id-ID"))
     formatRp.maximumFractionDigits = 0
 
     Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background).padding(16.dp)) {
@@ -57,7 +57,7 @@ fun DashboardScreen(viewModel: MainViewModel) {
                 modifier = Modifier.weight(1f),
                 title = "TOTAL TRANSAKSI",
                 value = "${uiState.transactionCount} Trx",
-                icon = Icons.Filled.List,
+                icon = Icons.AutoMirrored.Filled.List,
                 iconBgColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.1f),
                 iconColor = MaterialTheme.colorScheme.secondary
             )

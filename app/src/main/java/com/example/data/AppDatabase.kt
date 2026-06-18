@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Product::class, Transaction::class, TransactionItem::class], version = 1, exportSchema = false)
+@Database(entities = [Product::class, Transaction::class, TransactionItem::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun stokeDao(): StokeDao
 
@@ -20,7 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "stoke_database"
                 )
-                  .fallbackToDestructiveMigration()
+                  .fallbackToDestructiveMigration(true)
                   .build()
                 INSTANCE = instance
                 instance

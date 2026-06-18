@@ -28,7 +28,7 @@ data class Transaction(
 @Entity(tableName = "transaction_items", foreignKeys = [
     ForeignKey(entity = Transaction::class, parentColumns = ["id"], childColumns = ["transactionId"], onDelete = ForeignKey.CASCADE),
     ForeignKey(entity = Product::class, parentColumns = ["id"], childColumns = ["productId"], onDelete = ForeignKey.RESTRICT)
-])
+], indices = [Index("transactionId"), Index("productId")])
 data class TransactionItem(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val transactionId: Int,
